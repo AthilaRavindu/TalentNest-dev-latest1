@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fffe;
+  padding: 40px;
+  gap: 20px;
+}
+
+.navbar {
+  flex: 0 0 auto; /* Don't grow, fixed height */
+  width: 1328px;
+  max-width: calc(100vw - 40px); /* Responsive fallback */
+  margin: 0 auto; /* Center the navbar */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  padding: 16px 24px;
+}
+
+.mainLayout {
+  display: flex;
+  flex: 1; /* Take up remaining vertical space */
+  gap: 20px;
+  min-height: 0; /* Important for flex children */
+}
+
+.menu {
+  flex: 0 0 auto; /* Don't grow or shrink, use natural width */
+  display: flex;
+  align-items: flex-start; /* Align sidebar to top */
+}
+
+.content {
+  flex: 1; /* Take up remaining horizontal space */
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Important for flex children */
+}
+.h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}

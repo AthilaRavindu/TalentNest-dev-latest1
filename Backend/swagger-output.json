@@ -1,0 +1,1269 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TalentNest API",
+    "description": "API documentation for the TalentNest backend",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/": {
+      "post": {
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "fullName",
+                  "userId",
+                  "workEmail",
+                  "username",
+                  "NIC",
+                  "password"
+                ],
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Doe"
+                  },
+                  "fullName": {
+                    "type": "string",
+                    "example": "John Doe"
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "EMP001"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "johndoe123"
+                  },
+                  "NIC": {
+                    "type": "string",
+                    "example": "123456789V"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "securePassword123"
+                  },
+                  "workEmail": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "john.doe@company.com"
+                  },
+                  "personalPhoneNumber": {
+                    "type": "string",
+                    "example": "+1234567890"
+                  },
+                  "whatsappPhoneNumber": {
+                    "type": "string",
+                    "example": "+1234567890"
+                  },
+                  "dateOfBirth": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "1990-01-01"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female",
+                      "other"
+                    ],
+                    "example": "male"
+                  },
+                  "maritalStatus": {
+                    "type": "string",
+                    "enum": [
+                      "single",
+                      "married",
+                      "divorced",
+                      "widowed"
+                    ],
+                    "example": "single"
+                  },
+                  "nationality": {
+                    "type": "string",
+                    "example": "American"
+                  },
+                  "passportNumber": {
+                    "type": "string",
+                    "example": "A12345678"
+                  },
+                  "bloodGroup": {
+                    "type": "string",
+                    "enum": [
+                      "A+",
+                      "A-",
+                      "B+",
+                      "B-",
+                      "AB+",
+                      "AB-",
+                      "O+",
+                      "O-"
+                    ],
+                    "example": "O+"
+                  },
+                  "religion": {
+                    "type": "string",
+                    "example": "Christianity"
+                  },
+                  "currentAddress": {
+                    "type": "object",
+                    "properties": {
+                      "addressLine": {
+                        "type": "string",
+                        "example": "123 Main St"
+                      },
+                      "city": {
+                        "type": "string",
+                        "example": "New York"
+                      },
+                      "province": {
+                        "type": "string",
+                        "example": "NY"
+                      },
+                      "postalCode": {
+                        "type": "string",
+                        "example": "10001"
+                      }
+                    }
+                  },
+                  "permanentAddress": {
+                    "type": "object",
+                    "properties": {
+                      "addressLine": {
+                        "type": "string",
+                        "example": "456 Home St"
+                      },
+                      "city": {
+                        "type": "string",
+                        "example": "Boston"
+                      },
+                      "province": {
+                        "type": "string",
+                        "example": "MA"
+                      },
+                      "postalCode": {
+                        "type": "string",
+                        "example": "02101"
+                      }
+                    }
+                  },
+                  "socialMediaLinks": {
+                    "type": "object",
+                    "properties": {
+                      "linkedinProfile": {
+                        "type": "string",
+                        "example": "https://linkedin.com/in/johndoe"
+                      },
+                      "facebookProfile": {
+                        "type": "string",
+                        "example": "https://facebook.com/johndoe"
+                      }
+                    }
+                  },
+                  "hireDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-01"
+                  },
+                  "department": {
+                    "type": "string",
+                    "example": "Software Development"
+                  },
+                  "position": {
+                    "type": "string",
+                    "example": "Senior Developer"
+                  },
+                  "managerId": {
+                    "type": "string",
+                    "example": "EM21456"
+                  },
+                  "workLocation": {
+                    "type": "string",
+                    "example": "Office Building A"
+                  },
+                  "employmentType": {
+                    "type": "string",
+                    "enum": [
+                      "full-time",
+                      "part-time",
+                      "intern",
+                      "contract"
+                    ],
+                    "example": "full-time"
+                  },
+                  "employmentStatus": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "inactive",
+                      "terminated"
+                    ],
+                    "example": "active"
+                  },
+                  "terminationDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-12-31"
+                  },
+                  "workingHours": {
+                    "type": "string",
+                    "example": "9:00 AM - 5:00 PM"
+                  },
+                  "basicSalary": {
+                    "type": "number",
+                    "example": 50000
+                  },
+                  "biometrics": {
+                    "type": "object",
+                    "properties": {
+                      "fingerprint": {
+                        "type": "string",
+                        "example": "fingerprint_data"
+                      },
+                      "faceId": {
+                        "type": "string",
+                        "example": "face_data"
+                      }
+                    }
+                  },
+                  "emergencyContact": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "Jane Doe"
+                      },
+                      "phoneNumber": {
+                        "type": "string",
+                        "example": "+1234567891"
+                      },
+                      "relationship": {
+                        "type": "string",
+                        "example": "Spouse"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/users/bulk-update": {
+      "put": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "userIds": {
+                    "example": "any"
+                  },
+                  "updates": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/assign-role": {
+      "put": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "userIds": {
+                    "example": "any"
+                  },
+                  "role": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/assign-permissions": {
+      "put": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "userIds": {
+                    "example": "any"
+                  },
+                  "permissions": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/assign-leave-policy": {
+      "put": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "userIds": {
+                    "example": "any"
+                  },
+                  "leavePolicy": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/assign-system-role": {
+      "put": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "userIds": {
+                    "example": "any"
+                  },
+                  "systemRole": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Doe"
+                  },
+                  "fullName": {
+                    "type": "string",
+                    "example": "John Doe"
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "EMP001"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "johndoe123"
+                  },
+                  "workEmail": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "john.doe@company.com"
+                  },
+                  "personalPhoneNumber": {
+                    "type": "string",
+                    "example": "+1234567890"
+                  },
+                  "whatsappPhoneNumber": {
+                    "type": "string",
+                    "example": "+1234567890"
+                  },
+                  "dateOfBirth": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "1990-01-01"
+                  },
+                  "gender": {
+                    "type": "string",
+                    "enum": [
+                      "male",
+                      "female",
+                      "other"
+                    ],
+                    "example": "male"
+                  },
+                  "maritalStatus": {
+                    "type": "string",
+                    "enum": [
+                      "single",
+                      "married",
+                      "divorced",
+                      "widowed"
+                    ],
+                    "example": "single"
+                  },
+                  "nationality": {
+                    "type": "string",
+                    "example": "American"
+                  },
+                  "passportNumber": {
+                    "type": "string",
+                    "example": "A12345678"
+                  },
+                  "bloodGroup": {
+                    "type": "string",
+                    "enum": [
+                      "A+",
+                      "A-",
+                      "B+",
+                      "B-",
+                      "AB+",
+                      "AB-",
+                      "O+",
+                      "O-"
+                    ],
+                    "example": "O+"
+                  },
+                  "religion": {
+                    "type": "string",
+                    "example": "Christianity"
+                  },
+                  "currentAddress": {
+                    "type": "object",
+                    "properties": {
+                      "addressLine": {
+                        "type": "string",
+                        "example": "123 Main St"
+                      },
+                      "city": {
+                        "type": "string",
+                        "example": "New York"
+                      },
+                      "province": {
+                        "type": "string",
+                        "example": "NY"
+                      },
+                      "postalCode": {
+                        "type": "string",
+                        "example": "10001"
+                      }
+                    }
+                  },
+                  "permanentAddress": {
+                    "type": "object",
+                    "properties": {
+                      "addressLine": {
+                        "type": "string",
+                        "example": "456 Home St"
+                      },
+                      "city": {
+                        "type": "string",
+                        "example": "Boston"
+                      },
+                      "province": {
+                        "type": "string",
+                        "example": "MA"
+                      },
+                      "postalCode": {
+                        "type": "string",
+                        "example": "02101"
+                      }
+                    }
+                  },
+                  "socialMediaLinks": {
+                    "type": "object",
+                    "properties": {
+                      "linkedinProfile": {
+                        "type": "string",
+                        "example": "https://linkedin.com/in/johndoe"
+                      },
+                      "facebookProfile": {
+                        "type": "string",
+                        "example": "https://facebook.com/johndoe"
+                      }
+                    }
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "newPassword123"
+                  },
+                  "hireDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-01"
+                  },
+                  "department": {
+                    "type": "string",
+                    "example": "Software Development"
+                  },
+                  "position": {
+                    "type": "string",
+                    "example": "Senior Developer"
+                  },
+                  "managerId": {
+                    "type": "string",
+                    "example": "EM21456"
+                  },
+                  "workLocation": {
+                    "type": "string",
+                    "example": "Office Building A"
+                  },
+                  "employmentType": {
+                    "type": "string",
+                    "enum": [
+                      "full-time",
+                      "part-time",
+                      "intern",
+                      "contract"
+                    ],
+                    "example": "full-time"
+                  },
+                  "employmentStatus": {
+                    "type": "string",
+                    "enum": [
+                      "active",
+                      "inactive",
+                      "terminated"
+                    ],
+                    "example": "active"
+                  },
+                  "terminationDate": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-12-31"
+                  },
+                  "workingHours": {
+                    "type": "string",
+                    "example": "9:00 AM - 5:00 PM"
+                  },
+                  "basicSalary": {
+                    "type": "number",
+                    "example": 55000
+                  },
+                  "biometrics": {
+                    "type": "object",
+                    "properties": {
+                      "fingerprint": {
+                        "type": "string",
+                        "example": "fingerprint_data"
+                      },
+                      "faceId": {
+                        "type": "string",
+                        "example": "face_data"
+                      }
+                    }
+                  },
+                  "emergencyContact": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "example": "Jane Doe"
+                      },
+                      "phoneNumber": {
+                        "type": "string",
+                        "example": "+1234567891"
+                      },
+                      "relationship": {
+                        "type": "string",
+                        "example": "Spouse"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/admin-login": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/admin/admin-create": {
+      "post": {
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/forgot-password/send-otp-mail": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "otp": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/forgot-password/verify-otp": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  "otp": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/forgot-password/resend-otp": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "otp": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/otp/send-credentials": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "username": {
+                    "example": "any"
+                  },
+                  "employeeName": {
+                    "example": "any"
+                  },
+                  "NIC": {
+                    "example": "any"
+                  },
+                  "userId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/otp/verify-otp": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "username": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/otp/change-password": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "safeBody": {
+                    "example": "any"
+                  },
+                  "userId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
